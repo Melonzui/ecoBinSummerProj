@@ -1,5 +1,8 @@
 import 'package:ecobinproj/page/camera.dart';
+import 'package:ecobinproj/page/home_screen.dart';
 import 'package:ecobinproj/page/map_page.dart';
+import 'package:ecobinproj/page/my_page.dart';
+import 'package:ecobinproj/page/quiz_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -10,11 +13,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePage extends State<HomePage> {
-  int _selectedIndex = 0;
+  int _selectedIndex = 2;
 
   final List<Widget> _pages = <Widget>[
+    const QuizPage(),
+    const CameraPage(),
     const HomeScreen(),
     const MapPage(),
+    const MyPage(),
   ];
 
   void _onItemTapped(int index) {
@@ -45,7 +51,22 @@ class _HomePage extends State<HomePage> {
           BottomNavigationBarItem(
             //backgroundColor: Colors.grey,
             icon: Icon(
-              Icons.house,
+              Icons.question_mark,
+              color: Colors.red,
+            ),
+            label: "Quiz",
+          ),
+          BottomNavigationBarItem(
+            //backgroundColor: Colors.grey,
+            icon: Icon(
+              Icons.camera,
+              color: Colors.red,
+            ),
+            label: "Camera",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.home,
               color: Colors.red,
             ),
             label: "Home",
@@ -55,57 +76,18 @@ class _HomePage extends State<HomePage> {
               Icons.map,
               color: Colors.red,
             ),
-            label: "Add",
+            label: "map",
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.abc,
+              Icons.people,
               color: Colors.red,
             ),
-            label: "Custom",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.dangerous_rounded,
-              color: Colors.red,
-            ),
-            label: "Danger",
+            label: "Profile",
           ),
         ],
       ),
       body: _pages[_selectedIndex],
-    );
-  }
-}
-
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return const SingleChildScrollView(
-      padding: EdgeInsets.all(16.0),
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              '테스트 홈화면',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.w900),
-            ),
-            SizedBox(height: 20),
-            Text(
-              '홈 화면 내용 추가하기',
-              style: TextStyle(fontSize: 16),
-            ),
-            ElevatedButton(
-              onPressed: null,
-              child: Text('기능 버튼'),
-            ),
-          ],
-        ),
-      ),
     );
   }
 }

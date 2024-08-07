@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class CameraPage extends StatefulWidget {
-  const CameraPage({Key? key}) : super(key: key);
+class QuizPage extends StatefulWidget {
+  const QuizPage({Key? key}) : super(key: key);
 
   @override
-  State<CameraPage> createState() => _CameraPage();
+  State<QuizPage> createState() => _QuizPage();
 }
 
-class _CameraPage extends State<CameraPage> {
+class _QuizPage extends State<QuizPage> {
   @override
   void initState() {
     super.initState();
@@ -25,7 +25,7 @@ class _CameraPage extends State<CameraPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Text(
-                '카메라 예정화면',
+                '퀴즈 예정 페이지',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.w900),
               ),
               SizedBox(height: 20),
