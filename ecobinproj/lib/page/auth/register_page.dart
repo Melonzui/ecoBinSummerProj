@@ -153,7 +153,6 @@ class _RegisterPageState extends State<RegisterPage> {
           await HelperFunctions.saveUserLoggedInStatus(true);
           await HelperFunctions.saveUserEmailSF(email);
           await HelperFunctions.saveUserNameSF(fullName);
-          await HelperFunctions.saveUserPasswordSF(password);
           Navigator.push(
             context,
             MaterialPageRoute(

@@ -1,7 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ecobinproj/data/sharedpreference/auth_sf.dart';
+import 'package:ecobinproj/page/home_page.dart';
 import 'package:ecobinproj/services/firebase/firestore_database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 
 class AuthService {
   final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
@@ -29,13 +31,20 @@ class AuthService {
     }
   }
 
-  Future signOut() async {
+  Future signOut(BuildContext context) async {
     try {
       await HelperFunctions.saveUserLoggedInStatus(false);
       await HelperFunctions.saveUserEmailSF("");
       await HelperFunctions.saveUserNameSF("");
-      await HelperFunctions.saveUserPasswordSF("");
+
       await firebaseAuth.signOut();
+
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const HomePage(),
+        ),
+      );
     } catch (e) {
       return null;
     }

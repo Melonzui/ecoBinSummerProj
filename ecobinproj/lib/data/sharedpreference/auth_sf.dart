@@ -24,12 +24,6 @@ class HelperFunctions {
     return await sf.setString(userEmailKey, userEmail);
   }
 
-//비밀번호 받아오기
-  static Future<bool> saveUserPasswordSF(String userPassword) async {
-    SharedPreferences sf = await SharedPreferences.getInstance();
-    return await sf.setString(userPasswordKey, userPassword);
-  }
-
   static Future<bool?> getUserLoggedInStatus() async {
     SharedPreferences sf = await SharedPreferences.getInstance();
     return sf.getBool(userLoggedInKey);
@@ -43,10 +37,5 @@ class HelperFunctions {
   static Future<String?> getUserNameFromSF() async {
     SharedPreferences sf = await SharedPreferences.getInstance();
     return sf.getString(userNameKey);
-  }
-
-  static Future<String?> getUserPasswordFromSF() async {
-    SharedPreferences sf = await SharedPreferences.getInstance();
-    return sf.getString(userPasswordKey);
   }
 }

@@ -17,50 +17,16 @@ class DatabaseService {
     }
 
     return await userCollection.doc(uid).set({
-      "fullName": fullName,
-      "rivals": [],
+      "id": fullName,
       "uid": uid,
+      "environPoint": 0,
     });
   }
 
-  Future<void> addRival(String name, String friendUID) async {
-    DocumentSnapshot userDoc = await userCollection.doc(uid).get();
-    if (userDoc.exists) {
-      Map<String, dynamic> userData = userDoc.data() as Map<String, dynamic>;
-      List<dynamic> rivals = userData['rivals'] ?? [];
-
-      if (rivals.length < 15) {
-        await userCollection.doc(uid).update({
-          "rivals": FieldValue.arrayUnion([
-            {"name": name, "uid": friendUID}
-          ])
-        });
-      } else {
-        Fluttertoast.showToast(
-          msg: "라이벌 추가는 15명까지 가능합니다.",
-          toastLength: Toast.LENGTH_SHORT,
-          gravity: ToastGravity.BOTTOM,
-          timeInSecForIosWeb: 5,
-          backgroundColor: Colors.red,
-          textColor: Colors.white,
-          fontSize: 16.0,
-        );
-      }
-    }
-  }
-
-  Future<void> deleteRival(String name, String friendUID) async {
-    return await userCollection.doc(uid).update({
-      "rivals": FieldValue.arrayRemove([
-        {"name": name, "uid": friendUID}
-      ])
-    });
-  }
-
-  Future<List<dynamic>> getRivals() async {
+  Future<List<dynamic>> getPoint() async {
     DocumentSnapshot snapshot = await userCollection.doc(uid).get();
-    List<dynamic> rivals = snapshot['rivals'];
-    return rivals;
+    var userEnvironPoint = snapshot['environPoint'];
+    return userEnvironPoint;
   }
 
   Future<void> saveBestScoresToFirestore(String userId, List<dynamic> bestScores) async {
@@ -86,33 +52,5 @@ class DatabaseService {
 
   Future<QuerySnapshot> gettingUserData() async {
     return await userCollection.where("uid", isEqualTo: this.uid).get();
-  }
-
-  Future<Map<String, List<dynamic>>> fetchRivalsData(String userId) async {
-    DocumentSnapshot userDoc = await FirebaseFirestore.instance.collection('users').doc(userId).get();
-    if (userDoc.data() == null) {
-      return {};
-    }
-
-    List<dynamic> rivals = (userDoc.data() as Map<String, dynamic>)['rivals'] ?? [];
-    Map<String, List<dynamic>> rivalsData = {};
-
-    for (var rival in rivals) {
-      if (rival is! Map || !rival.containsKey('uid') || !rival.containsKey('name')) {
-        continue;
-      }
-
-      String rivalUid = rival['uid'];
-      String customName = rival['name'];
-      DocumentSnapshot rivalDoc = await FirebaseFirestore.instance.collection('users').doc(rivalUid).get();
-      if (rivalDoc.data() == null) {
-        continue;
-      }
-
-      List<dynamic> bestScores = (rivalDoc.data() as Map<String, dynamic>)['bestScores'] ?? [];
-      rivalsData[customName] = bestScores;
-    }
-
-    return rivalsData;
   }
 }

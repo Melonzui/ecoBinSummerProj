@@ -1,4 +1,6 @@
+import 'package:ecobinproj/data/sharedpreference/auth_sf.dart';
 import 'package:ecobinproj/page/auth/login_page.dart';
+import 'package:ecobinproj/services/auth/auth_services.dart';
 import 'package:flutter/material.dart';
 
 class MyPage extends StatefulWidget {
@@ -9,9 +11,22 @@ class MyPage extends StatefulWidget {
 }
 
 class _MyPage extends State<MyPage> {
+  bool _isSignedIn = false;
+  AuthService authService = AuthService();
+
   @override
   void initState() {
     super.initState();
+    getUserLoggedInStatus();
+  }
+
+  Future<void> getUserLoggedInStatus() async {
+    bool? value = await HelperFunctions.getUserLoggedInStatus();
+    if (value != null) {
+      setState(() {
+        _isSignedIn = value;
+      });
+    }
   }
 
   @override
@@ -32,19 +47,48 @@ class _MyPage extends State<MyPage> {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blue, // 버튼 색상
+                    textStyle: const TextStyle(color: Colors.white), // 텍스트 색상
+                  ),
+                  onPressed: _isSignedIn
+                      ? null // 로그인된 경우 로그인 버튼 비활성화
+                      : () {
+                          // 로그인되지 않은 경우에만 페이지 이동
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const LoginPage(),
+                            ),
+                          );
+                        },
                   child: const Text(
                     "로그인",
-                    style: TextStyle(color: Colors.white, fontSize: 16),
+                    style: TextStyle(fontSize: 16),
                   ),
-                  onPressed: () {
-                    // login_page 대신 실제 로그인 페이지 위젯을 생성해야 합니다.
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const LoginPage(), // LoginPage를 실제 페이지로 바꾸세요.
-                      ),
-                    );
-                  },
+                ),
+              ),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blue, // 버튼 색상
+                    textStyle: const TextStyle(color: Colors.white), // 텍스트 색상
+                  ),
+                  onPressed: _isSignedIn
+                      ? () async {
+                          // 로그아웃 버튼 기능
+                          await authService.signOut(context);
+                          // 로그인 상태 갱신
+                          setState(() {
+                            _isSignedIn = false;
+                          });
+                        }
+                      : null, // 로그아웃되지 않은 경우 로그아웃 버튼 비활성화
+                  child: const Text(
+                    "로그아웃",
+                    style: TextStyle(fontSize: 16),
+                  ),
                 ),
               ),
             ],

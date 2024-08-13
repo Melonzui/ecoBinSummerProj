@@ -1,5 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:ecobinproj/data/sharedpreference/auth_sf.dart';
 import 'package:ecobinproj/page/auth/register_page.dart';
+import 'package:ecobinproj/page/home_page.dart';
+import 'package:ecobinproj/services/auth/auth_services.dart';
+import 'package:ecobinproj/services/firebase/firestore_database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +20,7 @@ class _LoginPageState extends State<LoginPage> {
   String email = "";
   String password = "";
   bool _isLoading = false;
-  //AuthService authService = AuthService();
+  AuthService authService = AuthService();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -84,7 +88,7 @@ class _LoginPageState extends State<LoginPage> {
                               style: TextStyle(color: Colors.white, fontSize: 16),
                             ),
                             onPressed: () {
-                              //login();
+                              login();
                             },
                           ),
                         ),
@@ -118,7 +122,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
     );
   }
-/*
+
   login() async {
     if (formKey.currentState!.validate()) {
       setState(() {
@@ -132,21 +136,24 @@ class _LoginPageState extends State<LoginPage> {
             await HelperFunctions.saveUserLoggedInStatus(true);
             await HelperFunctions.saveUserEmailSF(email);
             await HelperFunctions.saveUserNameSF(snapshot.docs[0]['fullName']);
-            await HelperFunctions.saveUserPasswordSF(password);
-            nextScreenReplace(context, const HomePage());
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const HomePage(), // LoginPage를 실제 페이지로 바꾸세요.
+              ),
+            );
           } else {
-            showSnackbar(context, Colors.red, "사용자 데이터를 찾을 수 없습니다.");
             setState(() {
               _isLoading = false;
             });
           }
         } else {
-          showSnackbar(context, Colors.red, value);
+          //showSnackbar(context, Colors.red, value);
           setState(() {
             _isLoading = false;
           });
         }
       });
     }
-  }*/
+  }
 }
