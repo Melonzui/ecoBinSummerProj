@@ -6,12 +6,12 @@ import 'package:fluttertoast/fluttertoast.dart';
 class DatabaseService {
   final String? uid;
   DatabaseService({this.uid});
-  final String currentUserUID = FirebaseAuth.instance.currentUser!.uid;
+
   final CollectionReference userCollection = FirebaseFirestore.instance.collection("users");
   final CollectionReference groupCollection = FirebaseFirestore.instance.collection("groups");
   final CollectionReference postCollection = FirebaseFirestore.instance.collection("posts");
 
-  //계정생성 시 생성되는 데이터베이스
+  // 계정 생성 시 데이터베이스에 저장
   Future<void> savingUserData(String fullName) async {
     if (uid == null) {
       throw Exception("User ID is null. Cannot save user data.");
@@ -29,15 +29,21 @@ class DatabaseService {
       throw Exception("User ID is null. Cannot get points.");
     }
 
+    // FirebaseAuth를 통해 현재 사용자의 UID를 가져옵니다.
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) {
+      throw Exception("User is not authenticated.");
+    }
+
     try {
-      DocumentSnapshot snapshot = await userCollection.doc(currentUserUID).get();
+      DocumentSnapshot snapshot = await userCollection.doc(user.uid).get();
       if (snapshot.exists && snapshot.data() != null) {
         var data = snapshot.data() as Map<String, dynamic>;
         var userEnvironPoint = data['environPoint'] ?? 0;
         return userEnvironPoint;
       } else {
         // 문서가 존재하지 않는 경우 0 포인트 반환
-        print("Document does not exist for uid: $uid");
+        print("Document does not exist for uid: ${user.uid}");
         return 0;
       }
     } catch (e) {
@@ -57,11 +63,11 @@ class DatabaseService {
 
   Future<String> getAdminText() async {
     final firestore = FirebaseFirestore.instance;
-    final docRef = firestore.collection('admin').doc('adminAnnounce');
+    final docRef = firestore.collection('admin').doc('adminText');
 
     final docSnapshot = await docRef.get();
     if (docSnapshot.exists && docSnapshot.data() != null) {
-      String adminText = docSnapshot.data()!['announce'];
+      String adminText = docSnapshot.data()!['adminText'];
       return adminText;
     }
     return '';

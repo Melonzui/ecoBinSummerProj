@@ -4,6 +4,7 @@ import 'package:ecobinproj/page/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
+//apk 빌드 flutter build apk --release --target-platform=android-arm64
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
