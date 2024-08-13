@@ -135,7 +135,7 @@ class _LoginPageState extends State<LoginPage> {
           if (snapshot.docs.isNotEmpty) {
             await HelperFunctions.saveUserLoggedInStatus(true);
             await HelperFunctions.saveUserEmailSF(email);
-            await HelperFunctions.saveUserNameSF(snapshot.docs[0]['fullName']);
+            await HelperFunctions.saveUserNameSF(snapshot.docs[0]['id']);
             Navigator.push(
               context,
               MaterialPageRoute(

@@ -1,6 +1,7 @@
 import 'package:ecobinproj/data/sharedpreference/auth_sf.dart';
 import 'package:ecobinproj/page/auth/login_page.dart';
 import 'package:ecobinproj/services/auth/auth_services.dart';
+import 'package:ecobinproj/services/firebase/firestore_database.dart';
 import 'package:flutter/material.dart';
 
 class MyPage extends StatefulWidget {
@@ -12,7 +13,9 @@ class MyPage extends StatefulWidget {
 
 class _MyPage extends State<MyPage> {
   bool _isSignedIn = false;
+  int userPoint = 0;
   AuthService authService = AuthService();
+  DatabaseService firebaseDatabase = DatabaseService(uid: 'your_user_id'); // 유저 ID를 제공해야 합니다.
 
   @override
   void initState() {
@@ -26,6 +29,22 @@ class _MyPage extends State<MyPage> {
       setState(() {
         _isSignedIn = value;
       });
+      if (_isSignedIn) {
+        // 로그인된 경우에만 포인트를 가져옵니다.
+        await fetchUserPoint();
+      }
+    }
+  }
+
+  Future<void> fetchUserPoint() async {
+    try {
+      var point = await firebaseDatabase.getPoint();
+      setState(() {
+        userPoint = point;
+      });
+    } catch (e) {
+      // 오류 처리
+      print('Failed to fetch user point: $e');
     }
   }
 
@@ -44,6 +63,12 @@ class _MyPage extends State<MyPage> {
                 '사용자 프로필 예정화면',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.w900),
               ),
+              const SizedBox(height: 20),
+              Text(
+                '사용자의 누적 포인트: $userPoint',
+                style: const TextStyle(fontSize: 18),
+              ),
+              const SizedBox(height: 20),
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
@@ -68,6 +93,7 @@ class _MyPage extends State<MyPage> {
                   ),
                 ),
               ),
+              const SizedBox(height: 10),
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
@@ -82,6 +108,7 @@ class _MyPage extends State<MyPage> {
                           // 로그인 상태 갱신
                           setState(() {
                             _isSignedIn = false;
+                            userPoint = 0; // 로그아웃 시 포인트 초기화
                           });
                         }
                       : null, // 로그아웃되지 않은 경우 로그아웃 버튼 비활성화
