@@ -29,7 +29,6 @@ class DatabaseService {
       throw Exception("User ID is null. Cannot get points.");
     }
 
-    // FirebaseAuth를 통해 현재 사용자의 UID를 가져옵니다.
     final user = FirebaseAuth.instance.currentUser;
     if (user == null) {
       throw Exception("User is not authenticated.");

@@ -61,7 +61,7 @@ class _MyPage extends State<MyPage> {
     return Scaffold(
       appBar: AppBar(),
       body: _isLoading
-          ? Center(child: CircularProgressIndicator()) // 로딩 중일 때 표시
+          ? const Center(child: CircularProgressIndicator()) // 로딩 중일 때 표시
           : SingleChildScrollView(
               padding: const EdgeInsets.all(16.0),
               child: Center(
