@@ -1,45 +1,66 @@
 import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:camera/camera.dart';
+import 'package:tflite_flutter/tflite_flutter.dart';
+import 'package:image/image.dart' as img;
 
 class CameraPage extends StatefulWidget {
   const CameraPage({Key? key}) : super(key: key);
 
   @override
-  State<CameraPage> createState() => _CameraPage();
+  State<CameraPage> createState() => _CameraPageState();
 }
 
-class _CameraPage extends State<CameraPage> {
+class _CameraPageState extends State<CameraPage> with WidgetsBindingObserver {
   List<CameraDescription> _cameras = [];
   late CameraController controller;
-  bool _isCameraInitialized = false; // 카메라 초기화 상태를 추적하기 위한 변수
+  bool _isCameraInitialized = false;
+  bool _isInterpreterInitialized = false; // 모델이 로드되었는지 확인하는 변수
+  String _classificationResult = ''; // 이미지 분류 결과를 저장할 변수
+  File? _image; // 촬영한 이미지 파일
+
+  late Interpreter _interpreter; // TFLite 인터프리터
 
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     _initializeCamera();
+    _loadModel(); // 모델 로드
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    _disposeCamera();
+    _interpreter.close(); // TFLite 리소스 해제
+    super.dispose();
+  }
+
+  void _disposeCamera() {
+    if (_isCameraInitialized) {
+      controller.dispose();
+      _isCameraInitialized = false;
+    }
   }
 
   Future<void> _initializeCamera() async {
     try {
-      // 사용할 수 있는 카메라 목록을 가져옵니다.
       _cameras = await availableCameras();
 
       if (_cameras.isNotEmpty) {
         controller = CameraController(
-          _cameras[0], // 첫 번째 카메라 사용
-          ResolutionPreset.max,
+          _cameras[0],
+          ResolutionPreset.medium,
           enableAudio: false,
         );
 
-        // 컨트롤러 초기화
         await controller.initialize();
 
         if (!mounted) {
           return;
         }
 
-        // 초기화가 완료되었을 때 상태를 업데이트합니다.
         setState(() {
           _isCameraInitialized = true;
         });
@@ -51,72 +72,154 @@ class _CameraPage extends State<CameraPage> {
     }
   }
 
-  // 사진을 찍는 함수
-  Future<void> _takePicture() async {
-    if (!controller.value.isInitialized) {
+  Future<void> _loadModel() async {
+    try {
+      // 모델 로드
+      _interpreter = await Interpreter.fromAsset('assets/model.tflite');
+      setState(() {
+        _isInterpreterInitialized = true; // 모델이 로드되었음을 표시
+      });
+      print("모델 로드 완료");
+    } catch (e) {
+      print("모델 로드 오류: $e");
+    }
+  }
+
+  Future<void> _classifyImage(File image) async {
+    if (!_isInterpreterInitialized) {
+      print('모델이 아직 로드되지 않았습니다.');
       return;
     }
 
     try {
-      // 사진 촬영
+      // 이미지 로드 및 전처리
+      var inputImage = img.decodeImage(image.readAsBytesSync())!;
+
+      // 모델이 기대하는 입력 크기로 이미지 크기 조정
+      var inputShape = _interpreter.getInputTensor(0).shape;
+      var inputSize = inputShape[1]; // 보통은 [1, height, width, channels] 형식
+
+      var resizedImage = img.copyResize(inputImage, width: inputSize, height: inputSize);
+
+      // 이미지 데이터를 모델 입력 형식에 맞게 변환
+      var input = _imageToByteList(resizedImage, inputSize, 127.5, 127.5);
+
+      // 모델의 출력 크기 확인
+      var outputShape = _interpreter.getOutputTensor(0).shape;
+      var output = List.filled(outputShape.reduce((a, b) => a * b), 0.0).reshape(outputShape);
+
+      // 모델 실행
+      _interpreter.run([input], output);
+
+      // 결과 처리 (출력의 형태에 따라 수정 필요)
+      setState(() {
+        _classificationResult = 'Predicted value: ${output[0][0]}';
+      });
+    } catch (e) {
+      print('이미지 분류 오류: $e');
+    }
+  }
+
+  List<List<List<double>>> _imageToByteList(img.Image image, int inputSize, double mean, double std) {
+    var buffer = List.generate(
+      inputSize,
+      (_) => List.generate(inputSize, (_) => List.filled(3, 0.0)),
+    );
+
+    for (var i = 0; i < inputSize; i++) {
+      for (var j = 0; j < inputSize; j++) {
+        var pixel = image.getPixel(j, i);
+        buffer[i][j][0] = (img.getRed(pixel) - mean) / std;
+        buffer[i][j][1] = (img.getGreen(pixel) - mean) / std;
+        buffer[i][j][2] = (img.getBlue(pixel) - mean) / std;
+      }
+    }
+    return buffer;
+  }
+
+  Future<void> _takePicture() async {
+    if (!controller.value.isInitialized || controller.value.isTakingPicture) {
+      print('카메라가 초기화되지 않았거나 이미 사진을 찍고 있는 중입니다.');
+      return;
+    }
+
+    try {
+      print('사진 촬영 시작');
       final XFile file = await controller.takePicture();
 
-      // 사진을 저장할 경로 : 기본경로(storage/emulated/0/)
-      Directory directory = Directory('storage/emulated/0/DCIM/MyImages');
+      final File imageFile = File(file.path);
 
-      // 지정한 경로에 디렉토리를 생성하는 코드
-      // .create : 디렉토리 생성    recursive : true - 존재하지 않는 디렉토리일 경우 자동 생성
-      await Directory(directory.path).create(recursive: true);
+      if (await imageFile.length() == 0) {
+        throw Exception("Captured image is empty");
+      }
 
-      // 지정한 경로에 사진 저장
-      await File(file.path).copy('${directory.path}/${file.name}');
+      setState(() {
+        _image = imageFile;
+      });
+
+      await _classifyImage(imageFile);
     } catch (e) {
       print('사진 촬영 오류: $e');
     }
   }
 
   @override
-  void dispose() {
-    // 카메라 컨트롤러 해제
-    controller.dispose();
-    super.dispose();
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.inactive || state == AppLifecycleState.paused) {
+      _disposeCamera();
+    } else if (state == AppLifecycleState.resumed) {
+      if (!_isCameraInitialized) {
+        _initializeCamera();
+      }
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    // 카메라가 초기화되지 않았을 때 로딩 표시
     if (!_isCameraInitialized) {
-      return Center(child: CircularProgressIndicator());
+      return const Center(child: CircularProgressIndicator());
     }
-    // 카메라 인터페이스와 위젯을 겹쳐 구성할 예정이므로 Stack 위젯 사용
-    return Stack(
-      children: [
-        // 화면 전체를 차지하도록 Positioned.fill 위젯 사용
-        Positioned.fill(
-          // 카메라 촬영 화면이 보일 CameraPreview
-          child: CameraPreview(controller),
-        ),
-        // 하단 중앙에 위치도록 Align 위젯 설정
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: Padding(
-            padding: const EdgeInsets.all(15.0),
-            // 버튼 클릭 이벤트 정의를 위한 GestureDetector
-            child: GestureDetector(
-              onTap: () {
-                // 사진 찍기 함수 호출
-                _takePicture();
-              },
-              // 버튼으로 표시될 Icon
-              child: const Icon(
-                Icons.camera_enhance,
-                size: 70,
-                color: Colors.white,
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Recycle Detector'),
+      ),
+      body: Stack(
+        children: [
+          Positioned.fill(
+            child: CameraPreview(controller),
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: GestureDetector(
+                onTap: _takePicture,
+                child: const Icon(
+                  Icons.camera_enhance,
+                  size: 70,
+                  color: Colors.white,
+                ),
               ),
             ),
           ),
-        ),
-      ],
+          Align(
+            alignment: Alignment.topCenter,
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                children: [
+                  _image == null ? const Text('No image captured.') : Image.file(_image!),
+                  const SizedBox(height: 16),
+                  Text(
+                    _classificationResult,
+                    style: const TextStyle(fontSize: 24, color: Colors.white),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
