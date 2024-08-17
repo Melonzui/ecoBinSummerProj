@@ -16,7 +16,7 @@ class _HomePage extends State<HomePage> {
   int _selectedIndex = 2;
 
   final List<Widget> _pages = <Widget>[
-    const QuizPage(),
+    QuizPage(),
     const CameraPage(),
     const HomeScreen(),
     const MapPage(
@@ -36,7 +36,7 @@ class _HomePage extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "홈 화면",
+          "",
           style: TextStyle(
             color: Colors.black,
             fontSize: 18,
@@ -44,7 +44,7 @@ class _HomePage extends State<HomePage> {
           ),
         ),
         toolbarHeight: 40,
-        backgroundColor: Colors.grey,
+        backgroundColor: Colors.black45,
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,

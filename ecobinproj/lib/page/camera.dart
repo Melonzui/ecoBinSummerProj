@@ -215,9 +215,6 @@ class _CameraPageState extends State<CameraPage> with WidgetsBindingObserver {
       return const Center(child: CircularProgressIndicator());
     }
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Recycle Detector'),
-      ),
       body: Stack(
         children: [
           Positioned.fill(

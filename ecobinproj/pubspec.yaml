@@ -48,6 +48,8 @@ dependencies:
   tflite_flutter: ^0.10.4
   image: ^3.0.2
   location: ^6.0.2
+  auto_size_text: ^3.0.0
+  http: ^1.2.2
 
 dev_dependencies:
   flutter_test:
