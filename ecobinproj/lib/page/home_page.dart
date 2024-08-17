@@ -47,45 +47,49 @@ class _HomePage extends State<HomePage> {
         backgroundColor: Colors.black45,
       ),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.black45,
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
         items: const [
           BottomNavigationBarItem(
-            //backgroundColor: Colors.grey,
+            backgroundColor: Colors.grey,
             icon: Icon(
-              Icons.question_mark,
-              color: Colors.red,
+              Icons.quiz,
+              color: Colors.white,
             ),
-            label: "Quiz",
+            label: "퀴즈",
           ),
           BottomNavigationBarItem(
-            //backgroundColor: Colors.grey,
+            backgroundColor: Colors.grey,
             icon: Icon(
               Icons.camera,
-              color: Colors.red,
+              color: Colors.white,
             ),
-            label: "Camera",
+            label: "카메라",
           ),
           BottomNavigationBarItem(
+            backgroundColor: Colors.grey,
             icon: Icon(
               Icons.home,
-              color: Colors.red,
+              color: Colors.white,
             ),
-            label: "Home",
+            label: "홈",
           ),
           BottomNavigationBarItem(
+            backgroundColor: Colors.grey,
             icon: Icon(
               Icons.map,
-              color: Colors.red,
+              color: Colors.white,
             ),
-            label: "map",
+            label: "지도",
           ),
           BottomNavigationBarItem(
+            backgroundColor: Colors.grey,
             icon: Icon(
               Icons.people,
-              color: Colors.red,
+              color: Colors.white,
             ),
-            label: "Profile",
+            label: "마이페이지",
           ),
         ],
       ),

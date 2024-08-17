@@ -1,12 +1,11 @@
 import 'dart:convert';
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
 class MapPage extends StatefulWidget {
-  final String result; // 전달받은 쓰레기 유형
+  final String result;
 
   const MapPage({Key? key, required this.result}) : super(key: key);
 
@@ -23,7 +22,7 @@ class _MapPageState extends State<MapPage> {
   Set<Marker> _markers = {};
   List<Map<String, dynamic>> nearestBins = [];
   Map<String, dynamic>? selectedBin;
-  bool binSelected = false;
+  int? expandedIndex; // 확장된 카드의 인덱스를 추적
 
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;
@@ -31,6 +30,55 @@ class _MapPageState extends State<MapPage> {
 
   Future<void> _getCurrentLocation() async {
     _currentPosition = await _location.getLocation();
+  }
+
+  Future<void> _completeTask() async {
+    if (_currentPosition == null || selectedBin == null) return;
+
+    LatLng currentLocation = LatLng(_currentPosition!.latitude!, _currentPosition!.longitude!);
+    LatLng binLocation =
+        LatLng(selectedBin!['coordinate']['latitude'], selectedBin!['coordinate']['longitude']);
+    double distance = _calculateDistance(currentLocation, binLocation);
+
+    double threshold = 0.0001;
+
+    if (distance <= threshold) {
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('성공'),
+            content: Text('쓰레기통에 성공적으로 접근했습니다!'),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text('확인'),
+              ),
+            ],
+          );
+        },
+      );
+    } else {
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('실패'),
+            content: Text('쓰레기통에 더 가까이 가야 합니다.'),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text('확인'),
+              ),
+            ],
+          );
+        },
+      );
+    }
   }
 
   Future<void> _loadTrashBinData() async {
@@ -42,27 +90,17 @@ class _MapPageState extends State<MapPage> {
   }
 
   double _calculateDistance(LatLng start, LatLng end) {
-    const double earthRadius = 6371e3; // meters
-    final double dLat = _degreesToRadians(end.latitude - start.latitude);
-    final double dLon = _degreesToRadians(end.longitude - start.longitude);
-    final double a = (sin(dLat / 2) * sin(dLat / 2)) +
-        cos(_degreesToRadians(start.latitude)) *
-            cos(_degreesToRadians(end.latitude)) *
-            (sin(dLon / 2) * sin(dLon / 2));
-    final double c = 2 * atan2(sqrt(a), sqrt(1 - a));
-    return earthRadius * c;
-  }
-
-  double _degreesToRadians(double degrees) {
-    return degrees * (pi / 180);
+    final double dLat = start.latitude - end.latitude;
+    final double dLon = start.longitude - end.longitude;
+    return dLat * dLat + dLon * dLon;
   }
 
   Future<void> _showNearestTrashBins() async {
-    if (_currentPosition == null) return; // 위치 정보가 없으면 반환
+    if (_currentPosition == null) return;
 
     LatLng currentLocation = LatLng(_currentPosition!.latitude!, _currentPosition!.longitude!);
     List<Map<String, dynamic>> filteredBins = trashBins.where((bin) {
-      return bin['type'].contains(widget.result); // 쓰레기 유형 필터링
+      return bin['type'].contains(widget.result);
     }).toList();
 
     filteredBins.sort((a, b) {
@@ -77,7 +115,7 @@ class _MapPageState extends State<MapPage> {
       nearestBins = filteredBins.take(5).toList();
       _markers.clear();
       selectedBin = null;
-      binSelected = false;
+      expandedIndex = null;
       for (var bin in nearestBins) {
         _markers.add(
           Marker(
@@ -100,40 +138,40 @@ class _MapPageState extends State<MapPage> {
   void _selectBin(Map<String, dynamic> bin) {
     setState(() {
       selectedBin = bin;
-      binSelected = true;
+      // 선택된 마커만 남기도록 처리
+      _markers = {
+        Marker(
+          markerId: MarkerId(bin['address']),
+          position: LatLng(bin['coordinate']['latitude'], bin['coordinate']['longitude']),
+          infoWindow: InfoWindow(
+            title: bin['location'],
+            snippet: bin['type'].join(', '),
+          ),
+        )
+      };
     });
+
+    // 선택된 쓰레기통 위치로 지도 이동
+    mapController.animateCamera(
+      CameraUpdate.newLatLngZoom(
+        LatLng(bin['coordinate']['latitude'], bin['coordinate']['longitude']),
+        15.0,
+      ),
+    );
   }
 
   void _confirmSelection() {
     setState(() {
-      _markers.clear();
-      nearestBins = [selectedBin!]; // 선택된 빈만 남김
-      _markers.add(
-        Marker(
-          markerId: MarkerId(selectedBin!['address']),
-          position: LatLng(selectedBin!['coordinate']['latitude'], selectedBin!['coordinate']['longitude']),
-          infoWindow: InfoWindow(
-            title: selectedBin!['location'],
-            snippet: selectedBin!['type'].join(', '),
-          ),
-        ),
-      );
-      mapController.animateCamera(
-        CameraUpdate.newLatLngZoom(
-          LatLng(selectedBin!['coordinate']['latitude'], selectedBin!['coordinate']['longitude']),
-          15.0,
-        ),
-      );
-      binSelected = false; // 선택된 후 선택 상태 초기화
+      expandedIndex = null; // 카드 확장을 닫음
     });
   }
 
   void _resetSelection() {
     setState(() {
       selectedBin = null;
-      nearestBins.clear();
+      expandedIndex = null;
       _markers.clear();
-      binSelected = false;
+      _showNearestTrashBins(); // 초기 마커들 다시 표시
     });
   }
 
@@ -141,9 +179,9 @@ class _MapPageState extends State<MapPage> {
   void initState() {
     super.initState();
     _location.requestPermission().then((_) async {
-      await _getCurrentLocation(); // 현재 위치 가져오기
-      await _loadTrashBinData(); // JSON 데이터 로드
-      await _showNearestTrashBins(); // 근처 쓰레기통 표시
+      await _getCurrentLocation();
+      await _loadTrashBinData();
+      await _showNearestTrashBins();
     });
   }
 
@@ -160,62 +198,101 @@ class _MapPageState extends State<MapPage> {
       ),
       body: Column(
         children: <Widget>[
-          Expanded(
-            child: GoogleMap(
-              onMapCreated: _onMapCreated,
-              initialCameraPosition: CameraPosition(
-                target: LatLng(37.5665, 126.9780), // 초기 지도 위치 (서울 시청)
-                zoom: 11.0,
+          Padding(
+            padding: const EdgeInsets.all(2.0),
+            child: Card(
+              elevation: 4.0,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15.0),
               ),
-              myLocationEnabled: true,
-              myLocationButtonEnabled: false,
-              markers: _markers,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(15.0),
+                child: SizedBox(
+                  height: 300,
+                  child: GoogleMap(
+                    onMapCreated: _onMapCreated,
+                    initialCameraPosition: CameraPosition(
+                      target: LatLng(37.5665, 126.9780),
+                      zoom: 11.0,
+                    ),
+                    myLocationEnabled: true,
+                    myLocationButtonEnabled: false,
+                    markers: _markers,
+                  ),
+                ),
+              ),
             ),
           ),
-          if (nearestBins.isNotEmpty && !binSelected)
-            Container(
-              height: 200,
-              color: Colors.white,
+          if (nearestBins.isNotEmpty && selectedBin == null)
+            Expanded(
               child: ListView.builder(
                 itemCount: nearestBins.length,
                 itemBuilder: (context, index) {
                   final bin = nearestBins[index];
-                  return ListTile(
-                    title: Text(bin['location']),
-                    subtitle: Text(bin['address']),
-                    onTap: () => _selectBin(bin),
+                  return Card(
+                    color: Colors.black54,
+                    margin: const EdgeInsets.symmetric(horizontal: 3, vertical: 3),
+                    child: Column(
+                      children: [
+                        ListTile(
+                          title: Text(
+                            bin['location'],
+                            style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700),
+                          ),
+                          subtitle: Text(bin['address'], style: TextStyle(color: Colors.white)),
+                          onTap: () {
+                            setState(() {
+                              expandedIndex = expandedIndex == index ? null : index;
+                            });
+                          },
+                        ),
+                        if (expandedIndex == index)
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 3),
+                            child: ElevatedButton(
+                              onPressed: () {
+                                _selectBin(bin);
+                                _confirmSelection();
+                              },
+                              child: const Text(
+                                '선택하기',
+                                style: TextStyle(color: Colors.black87),
+                              ),
+                            ),
+                          ),
+                      ],
+                    ),
                   );
                 },
               ),
             ),
-          if (binSelected)
+          if (selectedBin != null)
             Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ElevatedButton(
-                onPressed: _confirmSelection,
-                child: const Text('선택하기'),
-              ),
-            ),
-          if (selectedBin != null && !binSelected)
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  ElevatedButton(
-                    onPressed: _resetSelection,
-                    child: const Text('포기하기'),
-                  ),
-                  ElevatedButton(
-                    onPressed: () {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('완료되었습니다!')),
-                      );
-                      // 완료 기능을 여기에 추가하세요.
-                    },
-                    child: const Text('완료하기'),
-                  ),
-                ],
+              padding: const EdgeInsets.all(3.0),
+              child: Card(
+                color: Colors.black54,
+                child: Column(
+                  children: [
+                    ListTile(
+                      title: Text(selectedBin!['location'],
+                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700)),
+                      subtitle: Text(selectedBin!['address'], style: TextStyle(color: Colors.white)),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        ElevatedButton(
+                          onPressed: _resetSelection,
+                          child: const Text('포기하기', style: TextStyle(color: Colors.black87)),
+                        ),
+                        ElevatedButton(
+                          onPressed: _completeTask,
+                          child: const Text('완료하기', style: TextStyle(color: Colors.black87)),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
         ],

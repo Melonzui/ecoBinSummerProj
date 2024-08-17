@@ -16,11 +16,11 @@ class _CameraPageState extends State<CameraPage> with WidgetsBindingObserver {
   List<CameraDescription> _cameras = [];
   late CameraController controller;
   bool _isCameraInitialized = false;
-  bool _isInterpreterInitialized = false; // 모델이 로드되었는지 확인하는 변수
-  String _classificationResult = ''; // 이미지 분류 결과를 저장할 변수
-  File? _image; // 촬영한 이미지 파일
+  bool _isInterpreterInitialized = false;
+  String _classificationResult = '';
+  File? _image;
 
-  late Interpreter _interpreter; // TFLite 인터프리터
+  late Interpreter _interpreter;
 
   @override
   void initState() {
@@ -240,7 +240,12 @@ class _CameraPageState extends State<CameraPage> with WidgetsBindingObserver {
               padding: const EdgeInsets.all(20.0),
               child: Column(
                 children: [
-                  _image == null ? const Text('No image captured.') : Image.file(_image!),
+                  _image == null
+                      ? const Text(
+                          '아래의 버튼을 눌러 촬영하세요',
+                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.w900),
+                        )
+                      : Image.file(_image!),
                   const SizedBox(height: 16),
                   Text(
                     _classificationResult,

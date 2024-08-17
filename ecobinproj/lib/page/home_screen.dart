@@ -19,16 +19,13 @@ class _HomeScreen extends State<HomeScreen> {
 
   Future<void> loadAdminAnnounceText() async {
     try {
-      // Fetch the admin text asynchronously
       String text = await firebaseDatabase.getAdminText();
 
-      // Update the state with the fetched text
       setState(() {
         adminAnnounceText = text;
       });
     } catch (e) {
       print('Failed to load admin text: $e');
-      // Handle the error accordingly, perhaps set a default text or show an error message
       setState(() {
         adminAnnounceText = 'Error loading admin announcement.';
       });
