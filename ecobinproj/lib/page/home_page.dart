@@ -19,7 +19,9 @@ class _HomePage extends State<HomePage> {
     const QuizPage(),
     const CameraPage(),
     const HomeScreen(),
-    const MapPage(),
+    const MapPage(
+      result: '',
+    ),
     const MyPage(),
   ];
 

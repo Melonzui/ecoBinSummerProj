@@ -1,3 +1,4 @@
+import 'package:ecobinproj/page/map_page.dart';
 import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:camera/camera.dart';
@@ -112,9 +113,10 @@ class _CameraPageState extends State<CameraPage> with WidgetsBindingObserver {
       _interpreter.run([input], output);
 
       // 결과 처리 (출력의 형태에 따라 수정 필요)
-      setState(() {
-        _classificationResult = 'Predicted value: ${output[0][0]}';
-      });
+      double prediction = output[0][0];
+      String result = prediction > 0.5 ? "재활용쓰레기" : "일반쓰레기";
+
+      _showResultDialog(prediction, result);
     } catch (e) {
       print('이미지 분류 오류: $e');
     }
@@ -161,6 +163,39 @@ class _CameraPageState extends State<CameraPage> with WidgetsBindingObserver {
     } catch (e) {
       print('사진 촬영 오류: $e');
     }
+  }
+
+  void _showResultDialog(double prediction, String result) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('분류 결과'),
+          content: Text('결과: $result\n확률: ${prediction.toStringAsFixed(2)}'),
+          actions: [
+            TextButton(
+              child: Text('재촬영하기'),
+              onPressed: () {
+                Navigator.of(context).pop(); // 팝업 닫기
+                _takePicture(); // 다시 촬영
+              },
+            ),
+            TextButton(
+              child: Text('지도로 가기'),
+              onPressed: () {
+                Navigator.of(context).pop(); // 팝업 닫기
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MapPage(result: result),
+                  ),
+                );
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override
