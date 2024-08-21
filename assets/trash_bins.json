@@ -1,0 +1,2243 @@
+[
+    {
+        "order": 1,
+        "district": "성북구",
+        "address": "동소문로2길",
+        "location": "성북천 분수광장 평화의소녀상 앞",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5887816,
+            "longitude": 127.0087513
+        },
+        "type": [
+            "재활용쓰레기"
+        ]
+    },
+    {
+        "order": 2,
+        "district": "성북구",
+        "address": "동소문로 12-1",
+        "location": "삼선교.한성대학교.조소앙활동터 버스정류장(08-010)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5891171,
+            "longitude": 127.0078402
+        },
+        "type": [
+            "모두"
+        ]
+    },
+
+    {
+        "order": 6,
+        "district": "성북구",
+        "address": "동소문로 12-1",
+        "location": "삼선교.한성대학교 버스정류장(08-009)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5891171,
+            "longitude": 127.0078402
+        },
+        "type": [
+            "모두"
+        ]
+    },
+    {
+        "order": 11,
+        "district": "성북구",
+        "address": "성북로 5",
+        "location": "한성대입구역 5번 출구",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5887024,
+            "longitude": 127.0054721
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 13,
+        "district": "성북구",
+        "address": "동선동4가 294-2",
+        "location": "돈암사거리.성신여대입구 버스정류장(08-007)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.59461599999999,
+            "longitude": 127.0190011
+        },
+        "type": [
+            "재활용쓰레기"
+        ]
+    },
+    {
+        "order": 14,
+        "district": "성북구",
+        "address": "동선동4가 294-2",
+        "location": "돈암사거리.성신여대입구 버스정류장(08-007)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.59461599999999,
+            "longitude": 127.0190011
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 15,
+        "district": "성북구",
+        "address": "동선동4가 294-2",
+        "location": "돈암사거리.성신여대입구 버스정류장(08-007)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.59461599999999,
+            "longitude": 127.0190011
+        },
+        "type": [
+            "재활용쓰레기"
+        ]
+    },
+    {
+        "order": 16,
+        "district": "성북구",
+        "address": "동선동4가 294-2",
+        "location": "돈암사거리.성신여대입구 버스정류장(08-007)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.59461599999999,
+            "longitude": 127.0190011
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 17,
+        "district": "성북구",
+        "address": "동선동1가 101-1",
+        "location": "돈암사거리.성신여대입구 버스정류장(08-008)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5929844,
+            "longitude": 127.0171981
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 18,
+        "district": "성북구",
+        "address": "동선동1가 101-1",
+        "location": "돈암사거리.성신여대입구 버스정류장(08-008)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5929844,
+            "longitude": 127.0171981
+        },
+        "type": [
+            "재활용쓰레기"
+        ]
+    },
+    {
+        "order": 19,
+        "district": "성북구",
+        "address": "동선동1가 101-1",
+        "location": "돈암사거리.성신여대입구 버스정류장(08-008)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5929844,
+            "longitude": 127.0171981
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 20,
+        "district": "성북구",
+        "address": "동선동1가 101-1",
+        "location": "돈암사거리.성신여대입구 버스정류장(08-008)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5929844,
+            "longitude": 127.0171981
+        },
+        "type": [
+            "재활용쓰레기"
+        ]
+    },
+    {
+        "order": 25,
+        "district": "성북구",
+        "address": "정릉로 372-1",
+        "location": "돈암동삼성아파트입구 버스정류장(08-123)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6019148,
+            "longitude": 127.0245361
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 26,
+        "district": "성북구",
+        "address": "정릉로 372-1",
+        "location": "돈암동삼성아파트입구 버스정류장(08-123)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6019148,
+            "longitude": 127.0245361
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 27,
+        "district": "성북구",
+        "address": "동소문로 181-1",
+        "location": "미아리고개.미아리예술극장 버스정류장(08-005)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5984939,
+            "longitude": 127.0216328
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 28,
+        "district": "성북구",
+        "address": "동소문로 181-1",
+        "location": "미아리고개.미아리예술극장 버스정류장(08-005)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5984939,
+            "longitude": 127.0216328
+        },
+        "type": [
+            "재활용쓰레기"
+        ]
+    },
+    {
+        "order": 29,
+        "district": "성북구",
+        "address": "동소문로 181-1",
+        "location": "미아리고개.미아리예술극장 버스정류장(08-005)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5984939,
+            "longitude": 127.0216328
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 30,
+        "district": "성북구",
+        "address": "동소문로 181-1",
+        "location": "미아리고개.미아리예술극장 버스정류장(08-005)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5984939,
+            "longitude": 127.0216328
+        },
+        "type": [
+            "재활용쓰레기"
+        ]
+    },
+    {
+        "order": 32,
+        "district": "성북구",
+        "address": "동소문로 184-1",
+        "location": "미아리고개.미아리예술극장 버스정류장(08-006)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5979965,
+            "longitude": 127.0217966
+        },
+        "type": [
+            "재활용쓰레기"
+        ]
+    },
+    {
+        "order": 33,
+        "district": "성북구",
+        "address": "동소문로 184-1",
+        "location": "미아리고개.미아리예술극장 버스정류장(08-006)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5979965,
+            "longitude": 127.0217966
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 34,
+        "district": "성북구",
+        "address": "동소문로 184-1",
+        "location": "미아리고개.미아리예술극장 버스정류장(08-006)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5979965,
+            "longitude": 127.0217966
+        },
+        "type": [
+            "재활용쓰레기"
+        ]
+    },
+    {
+        "order": 37,
+        "district": "성북구",
+        "address": "솔샘로 10-15",
+        "location": "숭덕초교 버스정류장(08-120)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6089873,
+            "longitude": 127.0077694
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 38,
+        "district": "성북구",
+        "address": "정릉동 138-15",
+        "location": "숭덕초교 버스정류장(08-119)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6034163,
+            "longitude": 127.0152178
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 39,
+        "district": "성북구",
+        "address": "정릉동 138-15",
+        "location": "숭덕초교 버스정류장(08-119)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6034163,
+            "longitude": 127.0152178
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 40,
+        "district": "성북구",
+        "address": "솔샘로 10-15",
+        "location": "정릉2동주민센터 버스정류장(08-117)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6089873,
+            "longitude": 127.0077694
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 41,
+        "district": "성북구",
+        "address": "솔샘로 10-15",
+        "location": "정릉2동주민센터 버스정류장(08-117)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6089873,
+            "longitude": 127.0077694
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 42,
+        "district": "성북구",
+        "address": "정릉동 415-18",
+        "location": "정릉우체국앞 버스정류장(08-169)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6052636,
+            "longitude": 127.0113899
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 43,
+        "district": "성북구",
+        "address": "정릉로 153",
+        "location": "고려대사범대학부속고등학교 버스정류장(08-114)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6079926,
+            "longitude": 127.0023444
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 44,
+        "district": "성북구",
+        "address": "정릉로 153",
+        "location": "고려대사범대학부속고등학교 버스정류장(08-114)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6079926,
+            "longitude": 127.0023444
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 45,
+        "district": "성북구",
+        "address": "정릉동 산 1-200",
+        "location": "청덕초교 버스정류장(08-112)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.60828,
+            "longitude": 127.0009179
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 46,
+        "district": "성북구",
+        "address": "정릉동 산 1-200",
+        "location": "청덕초교 버스정류장(08-112)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.60828,
+            "longitude": 127.0009179
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 47,
+        "district": "성북구",
+        "address": "정릉동 산 1-344",
+        "location": "국민대앞 버스정류장(08-107)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6108681,
+            "longitude": 126.9937624
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 48,
+        "district": "성북구",
+        "address": "정릉동 산 1-344",
+        "location": "국민대앞 버스정류장(08-107)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6108681,
+            "longitude": 126.9937624
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 49,
+        "district": "성북구",
+        "address": "정릉로 77",
+        "location": "국민대학교앞 버스정류장(08-110)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.611145,
+            "longitude": 126.9965764
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 50,
+        "district": "성북구",
+        "address": "정릉로 77",
+        "location": "국민대학교앞 버스정류장(08-110)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.611145,
+            "longitude": 126.9965764
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 51,
+        "district": "성북구",
+        "address": "정릉로 119-39",
+        "location": "국민대앞 버스정류장(08-108)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6099255,
+            "longitude": 126.9984786
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 52,
+        "district": "성북구",
+        "address": "정릉동 966-1",
+        "location": "북악중학교 버스정류장(08-113)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6089873,
+            "longitude": 127.0077694
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 53,
+        "district": "성북구",
+        "address": "정릉동 239-23",
+        "location": "정릉동풍림아파트.청소년문화의집 버스정류장(08-262)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6172848,
+            "longitude": 127.0081256
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 54,
+        "district": "성북구",
+        "address": "정릉동 239-23",
+        "location": "정릉동풍림아파트.청소년문화의집 버스정류장(08-262)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6172848,
+            "longitude": 127.0081256
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 55,
+        "district": "성북구",
+        "address": "보국문로 113",
+        "location": "정릉4동주민센터.경국사 버스정류장(08-163)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6135375,
+            "longitude": 127.0061442
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 56,
+        "district": "성북구",
+        "address": "보국문로 113",
+        "location": "정릉4동주민센터.경국사 버스정류장(08-163)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6135375,
+            "longitude": 127.0061442
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 57,
+        "district": "성북구",
+        "address": "장위동 64-135",
+        "location": "돌곶이역 2번출구",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6112771,
+            "longitude": 127.0565576
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 58,
+        "district": "성북구",
+        "address": "장위동 64-135",
+        "location": "돌곶이역 2번출구",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6112771,
+            "longitude": 127.0565576
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 59,
+        "district": "성북구",
+        "address": "장위동 65-152",
+        "location": "돌곶이역 버스정류장(08-142)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6099797,
+            "longitude": 127.0551724
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 60,
+        "district": "성북구",
+        "address": "상월곡동 35-9",
+        "location": "월곡중학교 버스정류장(08-353)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6059067,
+            "longitude": 127.047443
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 61,
+        "district": "성북구",
+        "address": "화랑로15길 4",
+        "location": "상월곡역 버스정류장(08-136)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6058808,
+            "longitude": 127.0465922
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 63,
+        "district": "성북구",
+        "address": "길음동 1076-2",
+        "location": "길음역 9번출구",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6045551,
+            "longitude": 127.0251939
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 64,
+        "district": "성북구",
+        "address": "길음동 1076-2",
+        "location": "길음역 9번출구",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6045551,
+            "longitude": 127.0251939
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 65,
+        "district": "성북구",
+        "address": "종암로 135",
+        "location": "서울종암경찰서",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6020204,
+            "longitude": 127.0322657
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 66,
+        "district": "성북구",
+        "address": "오패산로3길 77",
+        "location": "월곡동신아파트 버스정류장(08-403)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6051828,
+            "longitude": 127.0355725
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 67,
+        "district": "성북구",
+        "address": "하월곡동 155",
+        "location": "숭곡초교입구 버스정류장(08-101)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6095454,
+            "longitude": 127.031406
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 68,
+        "district": "성북구",
+        "address": "하월곡동 155",
+        "location": "숭곡초교입구 버스정류장(08-101)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6095454,
+            "longitude": 127.031406
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 69,
+        "district": "성북구",
+        "address": "종암로 180-1",
+        "location": "성가복지병원 버스정류장(08-149)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6059559,
+            "longitude": 127.0316359
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 70,
+        "district": "성북구",
+        "address": "보문로168",
+        "location": "보문동주민센터 버스정류장(08-183)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5894485,
+            "longitude": 127.0168291
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 71,
+        "district": "성북구",
+        "address": "보문로 79",
+        "location": "보문동성당 버스정류장(08-181)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5823604,
+            "longitude": 127.0206981
+        },
+        "type": [
+            "재활용쓰레기"
+        ]
+    },
+    {
+        "order": 73,
+        "district": "성북구",
+        "address": "고려대로27길 4",
+        "location": "안암전철역 버스정류장(08-302)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5865447,
+            "longitude": 127.0302377
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 74,
+        "district": "성북구",
+        "address": "안암동5가 93-19",
+        "location": "안암역 버스정류장(08-301)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5862496,
+            "longitude": 127.0303867
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 75,
+        "district": "성북구",
+        "address": "장월로 89-1",
+        "location": "국민은행장위동지점 버스정류장(08-282)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6138724,
+            "longitude": 127.048704
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 76,
+        "district": "성북구",
+        "address": "돌곶이로 197",
+        "location": "영어의 힘 앞",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6176141,
+            "longitude": 127.0476994
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 77,
+        "district": "성북구",
+        "address": "돌곶이로 197",
+        "location": "영어의 힘 앞",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6176141,
+            "longitude": 127.0476994
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 78,
+        "district": "성북구",
+        "address": "장위동 311-23",
+        "location": "장월초교.참누리아파트 버스정류장(08-450)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6233897,
+            "longitude": 127.0483285
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 79,
+        "district": "성북구",
+        "address": "장위동 311-23",
+        "location": "장월초교.참누리아파트 버스정류장(08-450)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6233897,
+            "longitude": 127.0483285
+        },
+        "type": [
+            "재활용쓰레기"
+        ]
+    },
+    {
+        "order": 80,
+        "district": "성북구",
+        "address": "정릉동 113-33",
+        "location": "아리랑고개.아리랑시네미디어센터 버스정류장(08-266)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6005013,
+            "longitude": 127.013848
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 81,
+        "district": "성북구",
+        "address": "정릉동 113-33",
+        "location": "아리랑고개.아리랑시네미디어센터 버스정류장(08-266)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6005013,
+            "longitude": 127.013848
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 86,
+        "district": "성북구",
+        "address": "오패산로1가길 17-1",
+        "location": "현대백화점별관주차장 버스정류장(08-874)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6033382,
+            "longitude": 127.0355431
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 87,
+        "district": "성북구",
+        "address": "한천로66길 221-1",
+        "location": "우리은행 앞 광장",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6143589,
+            "longitude": 127.0652662
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 88,
+        "district": "성북구",
+        "address": "종암동 29-18",
+        "location": "고려대역 1번출구",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5905398,
+            "longitude": 127.0361167
+        },
+        "type": [
+            "재활용쓰레기"
+        ]
+    },
+    {
+        "order": 89,
+        "district": "성북구",
+        "address": "종암로 127-1",
+        "location": "종암사거리입구 버스정류장(08-150)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6001404,
+            "longitude": 127.0348398
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 90,
+        "district": "성북구",
+        "address": "종암로 127-1",
+        "location": "종암사거리입구 버스정류장(08-150)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6001404,
+            "longitude": 127.0348398
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 91,
+        "district": "성북구",
+        "address": "길음로 74",
+        "location": "길음1동주민센터.길음중앙새마을금고앞 버스정류장(08-786)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6096851,
+            "longitude": 127.0207104
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 92,
+        "district": "성북구",
+        "address": "길음동 875-1",
+        "location": "길음시장입구 버스정류장(08-662)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6067015,
+            "longitude": 127.0218817
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 93,
+        "district": "성북구",
+        "address": "길음동 875-1",
+        "location": "현대아파트앞 버스정류장(08-514)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6067015,
+            "longitude": 127.0218817
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 94,
+        "district": "성북구",
+        "address": "길음동 607-33",
+        "location": "래미안821동앞 버스정류장(08-529)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6065118,
+            "longitude": 127.0217469
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 95,
+        "district": "성북구",
+        "address": "보문동2가 91-1",
+        "location": "보문역 버스정류장(08-179)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5855447,
+            "longitude": 127.0185793
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 96,
+        "district": "성북구",
+        "address": "안암동5가 40-10",
+        "location": "우신향병원 버스정류장(08-157)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5848376,
+            "longitude": 127.0313141
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 97,
+        "district": "성북구",
+        "address": "종암로 42-1",
+        "location": "숭례초등학교 버스정류장(08-155)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5939849,
+            "longitude": 127.0361067
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 98,
+        "district": "성북구",
+        "address": "정릉동 590-16",
+        "location": "청덕초등학교 버스정류장(08-111)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6087139,
+            "longitude": 126.9989361
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 99,
+        "district": "성북구",
+        "address": "하월곡동 79-20",
+        "location": "창문여고 버스정류장(08-102)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6113733,
+            "longitude": 127.0350039
+        },
+        "type": [
+            "재활용쓰레기"
+        ]
+    },
+    {
+        "order": 100,
+        "district": "성북구",
+        "address": "정릉로 367-2",
+        "location": "길음역 버스정류장(08-124)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6022306,
+            "longitude": 127.0243724
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 101,
+        "district": "성북구",
+        "address": "정릉로 367-2",
+        "location": "길음역 버스정류장(08-124)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6022306,
+            "longitude": 127.0243724
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 102,
+        "district": "성북구",
+        "address": "정릉로 367-2",
+        "location": "길음역 버스정류장(08-336)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6022306,
+            "longitude": 127.0243724
+        },
+        "type": [
+            "재활용쓰레기"
+        ]
+    },
+    {
+        "order": 103,
+        "district": "성북구",
+        "address": "정릉로 367-2",
+        "location": "길음역 버스정류장(08-336)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6022306,
+            "longitude": 127.0243724
+        },
+        "type": [
+            "재활용쓰레기"
+        ]
+    },
+    {
+        "order": 104,
+        "district": "성북구",
+        "address": "길음동 864",
+        "location": "월곡뉴타운 버스정류장(08-002)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6061233,
+            "longitude": 127.0273763
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 105,
+        "district": "성북구",
+        "address": "길음동 864",
+        "location": "월곡뉴타운 버스정류장(08-002)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6061233,
+            "longitude": 127.0273763
+        },
+        "type": [
+            "재활용쓰레기"
+        ]
+    },
+    {
+        "order": 106,
+        "district": "성북구",
+        "address": "길음동 864",
+        "location": "월곡뉴타운 버스정류장(08-002)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6061233,
+            "longitude": 127.0273763
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 107,
+        "district": "성북구",
+        "address": "길음동 864",
+        "location": "월곡뉴타운 버스정류장(08-002)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6061233,
+            "longitude": 127.0273763
+        },
+        "type": [
+            "재활용쓰레기"
+        ]
+    },
+    {
+        "order": 108,
+        "district": "성북구",
+        "address": "동소문로 295-2",
+        "location": "월곡뉴타운 버스정류장(08-001)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6070293,
+            "longitude": 127.0282377
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 109,
+        "district": "성북구",
+        "address": "동소문로 295-2",
+        "location": "월곡뉴타운 버스정류장(08-001)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6070293,
+            "longitude": 127.0282377
+        },
+        "type": [
+            "재활용쓰레기"
+        ]
+    },
+    {
+        "order": 110,
+        "district": "성북구",
+        "address": "동소문로 295-2",
+        "location": "월곡뉴타운 버스정류장(08-001)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6070293,
+            "longitude": 127.0282377
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 111,
+        "district": "성북구",
+        "address": "동소문로 295-2",
+        "location": "월곡뉴타운 버스정류장(08-001)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6070293,
+            "longitude": 127.0282377
+        },
+        "type": [
+            "재활용쓰레기"
+        ]
+    },
+    {
+        "order": 112,
+        "district": "성북구",
+        "address": "동소문로 295-2",
+        "location": "월곡뉴타운 버스정류장(08-001)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6070293,
+            "longitude": 127.0282377
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 113,
+        "district": "성북구",
+        "address": "길음동 532-17",
+        "location": "길음뉴타운 버스정류장(08-003)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6037482,
+            "longitude": 127.0241819
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 114,
+        "district": "성북구",
+        "address": "길음동 532-17",
+        "location": "길음뉴타운 버스정류장(08-003)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6037482,
+            "longitude": 127.0241819
+        },
+        "type": [
+            "재활용쓰레기"
+        ]
+    },
+    {
+        "order": 115,
+        "district": "성북구",
+        "address": "길음동 532-17",
+        "location": "길음뉴타운 버스정류장(08-003)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6037482,
+            "longitude": 127.0241819
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 116,
+        "district": "성북구",
+        "address": "길음동 532-17",
+        "location": "길음뉴타운 버스정류장(08-003)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6037482,
+            "longitude": 127.0241819
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 117,
+        "district": "성북구",
+        "address": "길음동 532-17",
+        "location": "길음뉴타운 버스정류장(08-003)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6037482,
+            "longitude": 127.0241819
+        },
+        "type": [
+            "재활용쓰레기"
+        ]
+    },
+    {
+        "order": 118,
+        "district": "성북구",
+        "address": "길음동 534-5",
+        "location": "길음뉴타운 버스정류장(08-004)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6030741,
+            "longitude": 127.0231686
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 119,
+        "district": "성북구",
+        "address": "길음동 534-5",
+        "location": "길음뉴타운 버스정류장(08-004)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6030741,
+            "longitude": 127.0231686
+        },
+        "type": [
+            "재활용쓰레기"
+        ]
+    },
+    {
+        "order": 120,
+        "district": "성북구",
+        "address": "길음동 534-5",
+        "location": "길음뉴타운 버스정류장(08-004)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6030741,
+            "longitude": 127.0231686
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 121,
+        "district": "성북구",
+        "address": "길음동 534-5",
+        "location": "길음뉴타운 버스정류장(08-004)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6030741,
+            "longitude": 127.0231686
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 122,
+        "district": "성북구",
+        "address": "길음동 534-5",
+        "location": "길음뉴타운 버스정류장(08-004)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6030741,
+            "longitude": 127.0231686
+        },
+        "type": [
+            "재활용쓰레기"
+        ]
+    },
+    {
+        "order": 123,
+        "district": "성북구",
+        "address": "하월곡동 27-118",
+        "location": "월곡역 2번출구",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6024946,
+            "longitude": 127.0412686
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 124,
+        "district": "성북구",
+        "address": "솔샘로 10-15",
+        "location": "정릉길음시장 버스정류장(08-121)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6089873,
+            "longitude": 127.0077694
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 125,
+        "district": "성북구",
+        "address": "종암로 127-1",
+        "location": "종암동주민센터 버스정류장(08-152)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6001404,
+            "longitude": 127.0348398
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 126,
+        "district": "성북구",
+        "address": "종암로 54",
+        "location": "청진동해장국 앞",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5950263,
+            "longitude": 127.0362085
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 127,
+        "district": "성북구",
+        "address": "성북로 14",
+        "location": "삼선교.성북문화원 버스정류장(08-237)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5890983,
+            "longitude": 127.0056114
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 128,
+        "district": "성북구",
+        "address": "정릉동 967-20",
+        "location": "정릉입구 버스정류장(08-263)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6024276,
+            "longitude": 127.0134205
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 129,
+        "district": "성북구",
+        "address": "정릉동 966-330",
+        "location": "정릉입구 버스정류장(08-264)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.602658,
+            "longitude": 127.0134848
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 130,
+        "district": "성북구",
+        "address": "오패산로 21-2",
+        "location": "생명의전화 버스정류장(08-290)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6059541,
+            "longitude": 127.0367091
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 131,
+        "district": "성북구",
+        "address": "하월곡동 88-5",
+        "location": "성가복지병원 버스정류장(08-148)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.60514209999999,
+            "longitude": 127.0315439
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 132,
+        "district": "성북구",
+        "address": "석관동 375-14",
+        "location": "석계역 버스정류장(08-147)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6087633,
+            "longitude": 127.0614552
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 133,
+        "district": "성북구",
+        "address": "동선동5가 134-4",
+        "location": "돈암2동주민센터입구.흥천사 버스정류장(08-268)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5960302,
+            "longitude": 127.0157326
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 134,
+        "district": "성북구",
+        "address": "상월곡동 97-11",
+        "location": "한국과학기술연구원입구 버스정류장(08-135)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.605653,
+            "longitude": 127.0473025
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 136,
+        "district": "성북구",
+        "address": "보문로 113",
+        "location": "배스킨라빈스 앞",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5850422,
+            "longitude": 127.019299
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 137,
+        "district": "성북구",
+        "address": "종암동 115-152",
+        "location": "종암SK아파트 버스정류장(08-130)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6020636,
+            "longitude": 127.0374628
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 138,
+        "district": "성북구",
+        "address": "석관동 43-1",
+        "location": "석관동코오롱아파트 버스정류장(08-197)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6087633,
+            "longitude": 127.0614552
+        },
+        "type": [
+            "재활용쓰레기"
+        ]
+    },
+    {
+        "order": 139,
+        "district": "성북구",
+        "address": "종암동 90-21",
+        "location": "KT월곡지사 버스정류장(08-128)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6024424,
+            "longitude": 127.0347584
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 140,
+        "district": "성북구",
+        "address": "솔샘로 10-15",
+        "location": "솔샘사거리 버스정류장(08-324)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6089873,
+            "longitude": 127.0077694
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 142,
+        "district": "성북구",
+        "address": "종암로5길 14",
+        "location": "숭례초교 버스정류장(08-154)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5948961,
+            "longitude": 127.034946
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 143,
+        "district": "성북구",
+        "address": "정릉로 279",
+        "location": "숭덕초교 버스정류장(08-257)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6039236,
+            "longitude": 127.0133439
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 144,
+        "district": "성북구",
+        "address": "장월로29길 9",
+        "location": "장곡초교사거리 버스정류장(08-222)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6176941,
+            "longitude": 127.0497836
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 145,
+        "district": "성북구",
+        "address": "보문로168",
+        "location": "성북구청 바람마당",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5894485,
+            "longitude": 127.0168291
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 146,
+        "district": "성북구",
+        "address": "길음로7길 20",
+        "location": "서울·성북 미디어문화마루 앞",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6037505,
+            "longitude": 127.0221534
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 147,
+        "district": "성북구",
+        "address": "정릉동 164-53",
+        "location": "정릉2동주민센터 버스정류장(08-118)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6050297,
+            "longitude": 127.011205
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 148,
+        "district": "성북구",
+        "address": "종암로21가길 36-1",
+        "location": "문화공간 이육사 앞 공원",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.59813930000001,
+            "longitude": 127.0326196
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 149,
+        "district": "성북구",
+        "address": "하월곡동 35-1",
+        "location": "월곡역 교통섬",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6017485,
+            "longitude": 127.0414156
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 150,
+        "district": "성북구",
+        "address": "한천로66길 221-1",
+        "location": "우리은행 앞 광장",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6143589,
+            "longitude": 127.0652662
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 151,
+        "district": "성북구",
+        "address": "종암로24가길 80",
+        "location": "래미안라센트아파트 103동 외부 서울자전거 따릉이 대여소",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5992879,
+            "longitude": 127.0385957
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 153,
+        "district": "성북구",
+        "address": "돌곶이로40길 46",
+        "location": "꿈의숲아이파크아파트 702동, 703동 사이 외부 인도",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6191535,
+            "longitude": 127.0486531
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 154,
+        "district": "성북구",
+        "address": "돌곶이로40길 46",
+        "location": "꿈의숲아이파크아파트 702동, 703동 사이 외부 인도",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6191535,
+            "longitude": 127.0486531
+        },
+        "type": [
+            "재활용쓰레기"
+        ]
+    },
+    {
+        "order": 155,
+        "district": "성북구",
+        "address": "장월로 160",
+        "location": "래미안장위포레카운티아파트 110동 외부 쉼터",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6180554,
+            "longitude": 127.0533393
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 156,
+        "district": "성북구",
+        "address": "한천로 713",
+        "location": "장위래미안퍼스트하이 상가 앞",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6200748,
+            "longitude": 127.05153
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 157,
+        "district": "성북구",
+        "address": "한천로 713",
+        "location": "장위래미안퍼스트하이 상가 앞",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6200748,
+            "longitude": 127.05153
+        },
+        "type": [
+            "재활용쓰레기"
+        ]
+    },
+    {
+        "order": 158,
+        "district": "성북구",
+        "address": "한천로 518",
+        "location": "시온아트빌 앞",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6066825,
+            "longitude": 127.0666057
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 159,
+        "district": "성북구",
+        "address": "솔샘로 32",
+        "location": "삼덕단지 버스정류장 앞",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6103959,
+            "longitude": 127.0053087
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 160,
+        "district": "성북구",
+        "address": "솔샘로 32",
+        "location": "삼덕단지 버스정류장 앞",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6103959,
+            "longitude": 127.0053087
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 161,
+        "district": "성북구",
+        "address": "서경로 63",
+        "location": "롯데캐슬 아파트 건너편 버스정류장",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6090786,
+            "longitude": 127.0153542
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 162,
+        "district": "성북구",
+        "address": "돌곶이로 220",
+        "location": "코오롱 하늘채 아파트 앞 버스정류장(08200)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.619671,
+            "longitude": 127.0461571
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 163,
+        "district": "성북구",
+        "address": "길음로 33",
+        "location": "길음뉴타운 8단지 앞",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6075609,
+            "longitude": 127.0179449
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 164,
+        "district": "성북구",
+        "address": "길음로 33",
+        "location": "길음뉴타운 우리은행 앞 버스정류장(08545)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6075609,
+            "longitude": 127.0179449
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 166,
+        "district": "성북구",
+        "address": "동소문로 298",
+        "location": "힐스테이트 입구 버스 정류장",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.606506,
+            "longitude": 127.0282194
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 167,
+        "district": "성북구",
+        "address": "보문로 168",
+        "location": "성북구청 바람마당",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5894485,
+            "longitude": 127.0168291
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 168,
+        "district": "성북구",
+        "address": "보문로 168",
+        "location": "성북구청 바람마당",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5894485,
+            "longitude": 127.0168291
+        },
+        "type": [
+            "재활용쓰레기"
+        ]
+    },
+    {
+        "order": 169,
+        "district": "성북구",
+        "address": "동소문로 310",
+        "location": "성북 우체국 앞 인도",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.6073072,
+            "longitude": 127.0293239
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 170,
+        "district": "성북구",
+        "address": "고려대로 73",
+        "location": "고대병원 버스정류장",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5871445,
+            "longitude": 127.0269854
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 171,
+        "district": "성북구",
+        "address": "고려대로 73",
+        "location": "고대병원 버스정류장",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5871445,
+            "longitude": 127.0269854
+        },
+        "type": [
+            "재활용쓰레기"
+        ]
+    },
+    {
+        "order": 172,
+        "district": "성북구",
+        "address": "보문동1가 109-3",
+        "location": "보문역 버스정류장(08296)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5856371,
+            "longitude": 127.0200071
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 173,
+        "district": "성북구",
+        "address": "보문동1가 109-3",
+        "location": "보문역 버스정류장(08296)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5856371,
+            "longitude": 127.0200071
+        },
+        "type": [
+            "재활용쓰레기"
+        ]
+    },
+    {
+        "order": 174,
+        "district": "성북구",
+        "address": "보문동1가 178-1",
+        "location": "보문역 버스정류장(08295)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5854985,
+            "longitude": 127.0201776
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 175,
+        "district": "성북구",
+        "address": "보문동1가 178-1",
+        "location": "보문역 버스정류장(08295)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5854985,
+            "longitude": 127.0201776
+        },
+        "type": [
+            "재활용쓰레기"
+        ]
+    },
+    {
+        "order": 176,
+        "district": "성북구",
+        "address": "보문로 162-1",
+        "location": "성북구청 버스정류장(08178)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5891033,
+            "longitude": 127.016275
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 177,
+        "district": "성북구",
+        "address": "보문로 162-1",
+        "location": "성북구청 버스정류장(08178)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5891033,
+            "longitude": 127.016275
+        },
+        "type": [
+            "재활용쓰레기"
+        ]
+    },
+    {
+        "order": 178,
+        "district": "성북구",
+        "address": "보문로 149-1",
+        "location": "성북구청 버스정류장(08177)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5880111,
+            "longitude": 127.0174411
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 179,
+        "district": "성북구",
+        "address": "보문로 149-1",
+        "location": "성북구청 버스정류장(08177)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5880111,
+            "longitude": 127.0174411
+        },
+        "type": [
+            "재활용쓰레기"
+        ]
+    },
+    {
+        "order": 180,
+        "district": "성북구",
+        "address": "삼선동2가 27-1",
+        "location": "삼선시장 버스정류장(08535)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5881318,
+            "longitude": 127.0093432
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 181,
+        "district": "성북구",
+        "address": "삼선동2가 27-1",
+        "location": "삼선시장 버스정류장(08535)",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5881318,
+            "longitude": 127.0093432
+        },
+        "type": [
+            "재활용쓰레기"
+        ]
+    },
+    {
+        "order": 182,
+        "district": "성북구",
+        "address": "보문로34길 88",
+        "location": "보문로34길 88 앞 인도",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5912546,
+            "longitude": 127.0201518
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 183,
+        "district": "성북구",
+        "address": "보문로34길 88",
+        "location": "보문로34길 88 앞 인도",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5912546,
+            "longitude": 127.0201518
+        },
+        "type": [
+            "재활용쓰레기"
+        ]
+    },
+    {
+        "order": 184,
+        "district": "성북구",
+        "address": "동소문로20길 43",
+        "location": "동소문로20길 43 앞 인도",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5906517,
+            "longitude": 127.01703
+        },
+        "type": [
+            "일반쓰레기"
+        ]
+    },
+    {
+        "order": 185,
+        "district": "성북구",
+        "address": "동소문로20길 43",
+        "location": "동소문로20길 43 앞 인도",
+        "coordinate": {
+            "altitude": "",
+            "latitude": 37.5906517,
+            "longitude": 127.01703
+        },
+        "type": [
+            "재활용쓰레기"
+        ]
+    }
+]
