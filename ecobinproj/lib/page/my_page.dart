@@ -63,75 +63,101 @@ class _MyPage extends State<MyPage> {
       body: _isLoading
           ? const Center(child: CircularProgressIndicator()) // 로딩 중일 때 표시
           : SingleChildScrollView(
-              padding: const EdgeInsets.all(16.0),
-              child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    const Text(
-                      '사용자 프로필 예정화면',
-                      style: TextStyle(fontSize: 24, fontWeight: FontWeight.w900),
-                    ),
-                    const SizedBox(height: 20),
-                    Text(
-                      '사용자의 누적 포인트: $userPoint',
-                      style: const TextStyle(fontSize: 18),
-                    ),
-                    const SizedBox(height: 20),
-                    SizedBox(
-                      width: double.infinity,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blue, // 버튼 색상
-                          textStyle: const TextStyle(color: Colors.white), // 텍스트 색상
-                        ),
-                        onPressed: _isSignedIn
-                            ? null // 로그인된 경우 로그인 버튼 비활성화
-                            : () {
-                                // 로그인되지 않은 경우에만 페이지 이동
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const LoginPage(),
-                                  ),
-                                );
-                              },
-                        child: const Text(
-                          "로그인",
-                          style: TextStyle(fontSize: 16),
-                        ),
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Row(
+              children: [
+                CircleAvatar(
+                  radius: 40,
+                  child: Icon(Icons.person, size: 50),
+                ),
+                SizedBox(width: 16),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'User ID: ${firebaseDatabase.uid}', // 사용자 아이디 표시
+                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                       ),
-                    ),
-                    const SizedBox(height: 10),
-                    SizedBox(
-                      width: double.infinity,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blue, // 버튼 색상
-                          textStyle: const TextStyle(color: Colors.white), // 텍스트 색상
-                        ),
+                      SizedBox(height: 4),
+                      TextButton(
                         onPressed: _isSignedIn
                             ? () async {
-                                // 로그아웃 버튼 기능
-                                await authService.signOut(context);
-                                // 로그인 상태 갱신
-                                setState(() {
-                                  _isSignedIn = false;
-                                  userPoint = 0; // 로그아웃 시 포인트 초기화
-                                });
-                              }
-                            : null, // 로그아웃되지 않은 경우 로그아웃 버튼 비활성화
-                        child: const Text(
-                          "로그아웃",
-                          style: TextStyle(fontSize: 16),
+                          await authService.signOut(context);
+                          setState(() {
+                            _isSignedIn = false;
+                            userPoint = 0; // 로그아웃 시 포인트 초기화
+                          });
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text('로그아웃되었습니다.')),
+                          );
+                        }
+                            : () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const LoginPage(),
+                            ),
+                          );
+                        },
+                        child: Text(
+                          _isSignedIn ? "로그아웃" : "로그인",
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        style: TextButton.styleFrom(
+                          padding: EdgeInsets.zero, // 여백 제거
+                          minimumSize: Size(100, 40), // 최소 크기 설정
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap, // 버튼 크기를 텍스트 크기로 맞춤
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
+              ],
+            ),
+            Divider(height: 40, thickness: 2), // 첫 번째 구분선
+            Center(
+              child: Text(
+                '누적 포인트: ${_isSignedIn ? userPoint : 0}',
+                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
             ),
+            Divider(thickness: 2), // 두 번째 구분선
+            ListTile(
+              leading: Icon(Icons.quiz, size: 30), // 아이콘 크기를 키움
+              title: const Text("내가 푼 퀴즈 다시보기"),
+              trailing: Icon(Icons.arrow_forward_ios),
+              onTap: () {
+                if (!_isSignedIn) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('로그인 상태에서는 클릭만 가능합니다.')),
+                  );
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('내가 푼 문제 확인')),
+                  );
+                }
+              },
+            ),
+            Divider(thickness: 2), // 세 번째 구분선
+            ListTile(
+              leading: Icon(Icons.contact_support, size: 30), // 아이콘 크기를 키움
+              title: const Text("고객센터"),
+              trailing: Icon(Icons.arrow_forward_ios),
+              onTap: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text('고객센터페이지로 이동')),
+                );
+              },
+            ),
+            Divider(thickness: 2), // 네 번째 구분선
+          ],
+        ),
+      ),
     );
   }
+
 }
