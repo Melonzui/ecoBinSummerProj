@@ -1,9 +1,10 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ecobinproj/model/model_quiz.dart';
 import 'package:ecobinproj/page/quiz/screen_result.dart';
 import 'package:ecobinproj/widgets/widget_candidate.dart';
+import 'package:ecobinproj/page/home_page.dart';
+import 'package:ecobinproj/model/model_quiz.dart';
 
 class QuizScreen extends StatefulWidget {
   final List<Quiz> quizs;
@@ -41,23 +42,83 @@ class _QuizScreenState extends State<QuizScreen> {
               border: Border.all(color: Colors.deepPurple),
             ),
             width: width * 0.85,
-            height: height * 0.7, // 높이를 0.7로 변경하여 버튼 포함
+            height: height * 0.7,
             child: PageView.builder(
               controller: _pageController,
               physics: NeverScrollableScrollPhysics(), // 유저 스크롤 방지
-              itemCount: widget.quizs.length,
+              itemCount: widget.quizs.length + 1, // 결과 페이지 포함
               onPageChanged: (index) {
                 setState(() {
                   _currentIndex = index;
-                  _answerState = [false, false, false, false];
+                  if (_currentIndex < widget.quizs.length) {
+                    _answerState = [false, false, false, false]; // 퀴즈 상태 초기화
+                  }
                 });
               },
               itemBuilder: (context, index) {
-                return _buildQuizCard(widget.quizs[index], width, height);
+                if (index == widget.quizs.length) {
+                  return _buildResultScreen(width, height); // 결과 화면
+                } else {
+                  return _buildQuizCard(widget.quizs[index], width, height); // 퀴즈 화면
+                }
               },
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _buildResultScreen(double width, double height) {
+    int score = 0;
+    for (int i = 0; i < widget.quizs.length; i++) {
+      if (widget.quizs[i].answer == _answers[i]) {
+        score += 1;
+      }
+    }
+
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: Colors.white),
+        color: Colors.white,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Padding(
+            padding: EdgeInsets.only(top: width * 0.1, bottom: width * 0.05),
+            child: Text(
+              '수고하셨습니다!',
+              style: TextStyle(
+                fontSize: width * 0.06,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          Text(
+            '당신의 점수는 $score / ${widget.quizs.length}',
+            style: TextStyle(
+              fontSize: width * 0.048,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(width * 0.024),
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const HomePage(),
+                  ),
+                      (route) => false, // 모든 이전 경로를 제거하고 홈 화면으로 이동
+                );
+              },
+              child: Text('홈으로 돌아가기'),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -105,31 +166,26 @@ class _QuizScreenState extends State<QuizScreen> {
             padding: EdgeInsets.all(width * 0.024),
             child: ElevatedButton(
               child: _currentIndex == widget.quizs.length - 1 ? Text('결과보기') : Text('다음 문제'),
-              style: ElevatedButton.styleFrom(
-                minimumSize: Size(width * 0.5, height * 0.05), // 버튼 크기 조정
-                backgroundColor: Colors.deepPurple, // 버튼의 배경색
-                foregroundColor: Colors.white, // 버튼의 텍스트 색상
-              ),
               onPressed: _answers[_currentIndex] == -1
                   ? null
                   : () {
-                      if (_currentIndex == widget.quizs.length - 1) {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => ResultScreen(answers: _answers, quizs: widget.quizs)));
-                        // 결과 보기로 이동하는 로직 추가
-                      } else {
-                        setState(() {
-                          _answerState = [false, false, false, false];
-                          _currentIndex += 1;
-                          _pageController.nextPage(
-                            duration: Duration(milliseconds: 300),
-                            curve: Curves.easeInOut,
-                          );
-                        });
-                      }
-                    },
+                if (_currentIndex == widget.quizs.length - 1) {
+                  // 결과 페이지로 이동
+                  _pageController.nextPage(
+                    duration: Duration(milliseconds: 300),
+                    curve: Curves.easeInOut,
+                  );
+                } else {
+                  // 다음 문제로 넘어가는 로직
+                  setState(() {
+                    _answerState = [false, false, false, false]; // 선택 초기화
+                    _pageController.nextPage(
+                      duration: Duration(milliseconds: 300),
+                      curve: Curves.easeInOut,
+                    );
+                  });
+                }
+              },
             ),
           )
         ],
@@ -145,7 +201,7 @@ class _QuizScreenState extends State<QuizScreen> {
           index: i,
           text: quiz.candidates != null && quiz.candidates!.isNotEmpty
               ? quiz.candidates![i]
-              : 'No Option', // 기본값 제공
+              : 'No Option',
           width: width,
           answerState: _answerState[i],
           tap: () {

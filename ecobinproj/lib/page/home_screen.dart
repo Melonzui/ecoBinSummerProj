@@ -1,5 +1,6 @@
 import 'package:ecobinproj/services/firebase/firestore_database.dart';
 import 'package:flutter/material.dart';
+import 'package:ecobinproj/model/model_quiz.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
