@@ -5,7 +5,8 @@ import 'package:ecobinproj/page/quiz/screen_quiz.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:ecobinproj/page/home_page.dart';
-import 'package:ecobinproj/model/model_quiz.dart';
+import 'package:ecobinproj/services/firebase/firestore_database.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class QuizPage extends StatefulWidget {
   @override
@@ -16,6 +17,7 @@ class _QuizPageState extends State<QuizPage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   List<Quiz> quizs = [];
   bool isLoading = false;
+  int correctAnswers = 0;
 
   Future<void> _fetchQuizs() async {
     setState(() {
@@ -30,6 +32,26 @@ class _QuizPageState extends State<QuizPage> {
     } else {
       throw Exception('Failed to load quiz data');
     }
+  }
+
+  Future<void> _updateUserPoints(int points) async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user != null) {
+      final databaseService = DatabaseService(uid: user.uid);
+      await databaseService.updateUserPoints(points);
+    }
+  }
+
+  void _onQuizCompleted(int correctAnswers) async {
+    // 정답 맞춘 수에 따라 포인트 업데이트
+    int earnedPoints = correctAnswers * 100;
+    await _updateUserPoints(earnedPoints);
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text('$earnedPoints 포인트를 획득했습니다!')),
+    );
+
+    Navigator.pop(context); // 퀴즈 완료 후 페이지를 닫습니다.
   }
 
   @override
@@ -85,23 +107,22 @@ class _QuizPageState extends State<QuizPage> {
                     backgroundColor: Colors.deepPurple, // 버튼의 배경색
                   ),
                   child: const Text(
-                    '지금 퀴즈 풀f기',
+                    '지금 퀴즈 풀기',
                     style: TextStyle(color: Colors.white),
                   ),
                   onPressed: () async {
                     await _fetchQuizs().whenComplete(() {
-                      final homePageState = context.findAncestorStateOfType<HomePage1>();
-                      if (homePageState != null) {
-                        homePageState.setState(() {
-                          homePageState.selectedQuizs = quizs; // 퀴즈 데이터를 설정
-                          homePageState.onItemTapped(3); // "퀴즈" 페이지로 이동하는 인덱스
-                        });
-                      }
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ScreenQuiz(
+                            quizs: quizs,
+                            onQuizCompleted: _onQuizCompleted,
+                          ),
+                        ),
+                      );
                     });
                   },
-
-
-
                 ),
               ),
             ),

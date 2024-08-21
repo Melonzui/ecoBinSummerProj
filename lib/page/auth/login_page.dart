@@ -3,8 +3,8 @@ import 'package:ecobinproj/data/sharedpreference/auth_sf.dart';
 import 'package:ecobinproj/page/auth/register_page.dart';
 import 'package:ecobinproj/page/my_page.dart';
 import 'package:ecobinproj/services/auth/auth_services.dart';
-import 'package:ecobinproj/services/firebase/firestore_database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:ecobinproj/services/firebase/firestore_database.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -33,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                  builder: (context) => const MyPage(),
+                builder: (context) => const MyPage(),
               ),
             );
           },
@@ -170,11 +170,49 @@ class _LoginPageState extends State<LoginPage> {
             });
           }
         } else {
+          _showLoginErrorDialog();  // 로그인 실패 시 호출
           setState(() {
             _isLoading = false;
           });
         }
+      }).catchError((e) {
+        _showLoginErrorDialog();  // 로그인 실패 시 호출
+        setState(() {
+          _isLoading = false;
+        });
       });
     }
+  }
+
+  void _showLoginErrorDialog() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text("로그인 실패"),
+          content: Text("이메일 또는 비밀번호가 잘못되었습니다. 회원가입 페이지로 이동하시겠습니까?"),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(); // 대화상자 닫기
+              },
+              child: Text("아니요"),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(); // 대화상자 닫기
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const RegisterPage(), // 회원가입 페이지로 이동
+                  ),
+                );
+              },
+              child: Text("예"),
+            ),
+          ],
+        );
+      },
+    );
   }
 }
