@@ -2,7 +2,6 @@ import 'package:ecobinproj/data/sharedpreference/auth_sf.dart';
 import 'package:ecobinproj/page/auth/login_page.dart';
 import 'package:ecobinproj/services/auth/auth_services.dart';
 import 'package:ecobinproj/services/firebase/firestore_database.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class MyPage extends StatefulWidget {
@@ -16,9 +15,8 @@ class _MyPage extends State<MyPage> {
   bool _isSignedIn = false;
   int userPoint = 0;
   AuthService authService = AuthService();
-  DatabaseService? firebaseDatabase; // 유저 ID를 제공해야 합니다.
+  DatabaseService firebaseDatabase = DatabaseService(uid: 'your_user_id'); // 유저 ID를 제공해야 합니다.
   bool _isLoading = true; // 로딩 상태 변수
-  String? userEmail;
 
   @override
   void initState() {
@@ -32,13 +30,6 @@ class _MyPage extends State<MyPage> {
       if (value != null) {
         setState(() {
           _isSignedIn = value;
-          if (_isSignedIn) {
-            var currentUser = FirebaseAuth.instance.currentUser;
-            if (currentUser != null) {
-              firebaseDatabase = DatabaseService(uid: currentUser.uid);
-              userEmail = currentUser.email; // 현재 사용자의 이메일을 저장합니다.
-            }
-          }
         });
         if (_isSignedIn) {
           // 로그인된 경우에만 포인트를 가져옵니다.
@@ -56,7 +47,7 @@ class _MyPage extends State<MyPage> {
 
   Future<void> fetchUserPoint() async {
     try {
-      int point = await firebaseDatabase!.getPoint();
+      int point = await firebaseDatabase.getPoint();
       setState(() {
         userPoint = point;
       });
@@ -84,15 +75,14 @@ class _MyPage extends State<MyPage> {
                 ),
                 SizedBox(width: 16),
                 Expanded(
-                  child: Row(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      if (_isSignedIn) // 로그인된 경우에만 사용자 이메일을 표시
-                        Expanded(
-                          child: Text(
-                            userEmail ?? '', // 사용자 이메일 표시
-                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                          ),
-                        ),
+                      Text(
+                        'User ID: ${firebaseDatabase.uid}', // 사용자 아이디 표시
+                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(height: 4),
                       TextButton(
                         onPressed: _isSignedIn
                             ? () async {
@@ -143,7 +133,7 @@ class _MyPage extends State<MyPage> {
               onTap: () {
                 if (!_isSignedIn) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('로그인 한 후 이용해주세요.')),
+                    SnackBar(content: Text('로그인 상태에서는 클릭만 가능합니다.')),
                   );
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(
@@ -169,4 +159,5 @@ class _MyPage extends State<MyPage> {
       ),
     );
   }
+
 }

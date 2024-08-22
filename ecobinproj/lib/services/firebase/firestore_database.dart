@@ -23,31 +23,6 @@ class DatabaseService {
       "environPoint": 0,
     });
   }
-  // 포인트를 업데이트하는 메서드
-  Future<void> updateUserPoints(int points) async {
-    if (uid == null) {
-      throw Exception("User ID is null. Cannot update points.");
-    }
-
-    try {
-      DocumentSnapshot snapshot = await userCollection.doc(uid).get();
-      if (snapshot.exists && snapshot.data() != null) {
-        var data = snapshot.data() as Map<String, dynamic>;
-        int currentPoints = data['environPoint'] ?? 0;
-        await userCollection.doc(uid).update({
-          'environPoint': currentPoints + points,
-        });
-      } else {
-        // 처음으로 포인트를 추가할 때
-        await userCollection.doc(uid).set({
-          'environPoint': points,
-        });
-      }
-    } catch (e) {
-      print('Error updating points: $e');
-      throw Exception("Failed to update user points");
-    }
-  }
 
   Future<int> getPoint() async {
     if (uid == null) {
