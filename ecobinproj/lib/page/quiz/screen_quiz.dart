@@ -59,7 +59,8 @@ class _QuizScreenState extends State<QuizScreen> {
                 if (index == widget.quizs.length) {
                   return _buildResultScreen(width, height); // 결과 화면
                 } else {
-                  return _buildQuizCard(widget.quizs[index], width, height); // 퀴즈 화면
+                  return _buildQuizCard(
+                      widget.quizs[index], width, height); // 퀴즈 화면
                 }
               },
             ),
@@ -76,6 +77,7 @@ class _QuizScreenState extends State<QuizScreen> {
         score += 1;
       }
     }
+    _updateUserPoints(score * 100);
 
     return Container(
       decoration: BoxDecoration(
@@ -112,7 +114,7 @@ class _QuizScreenState extends State<QuizScreen> {
                   MaterialPageRoute(
                     builder: (context) => const HomePage(),
                   ),
-                      (route) => false, // 모든 이전 경로를 제거하고 홈 화면으로 이동
+                  (route) => false, // 모든 이전 경로를 제거하고 홈 화면으로 이동
                 );
               },
               child: Text('홈으로 돌아가기'),
@@ -121,6 +123,14 @@ class _QuizScreenState extends State<QuizScreen> {
         ],
       ),
     );
+  }
+
+  Future<void> _updateUserPoints(int points) async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user != null) {
+      final databaseService = DatabaseService(uid: user.uid);
+      await databaseService.updateUserPoints(points);
+    }
   }
 
   Widget _buildQuizCard(Quiz quiz, double width, double height) {
@@ -165,27 +175,29 @@ class _QuizScreenState extends State<QuizScreen> {
           Container(
             padding: EdgeInsets.all(width * 0.024),
             child: ElevatedButton(
-              child: _currentIndex == widget.quizs.length - 1 ? Text('결과보기') : Text('다음 문제'),
+              child: _currentIndex == widget.quizs.length - 1
+                  ? Text('결과보기')
+                  : Text('다음 문제'),
               onPressed: _answers[_currentIndex] == -1
                   ? null
                   : () {
-                if (_currentIndex == widget.quizs.length - 1) {
-                  // 결과 페이지로 이동
-                  _pageController.nextPage(
-                    duration: Duration(milliseconds: 300),
-                    curve: Curves.easeInOut,
-                  );
-                } else {
-                  // 다음 문제로 넘어가는 로직
-                  setState(() {
-                    _answerState = [false, false, false, false]; // 선택 초기화
-                    _pageController.nextPage(
-                      duration: Duration(milliseconds: 300),
-                      curve: Curves.easeInOut,
-                    );
-                  });
-                }
-              },
+                      if (_currentIndex == widget.quizs.length - 1) {
+                        // 결과 페이지로 이동
+                        _pageController.nextPage(
+                          duration: Duration(milliseconds: 300),
+                          curve: Curves.easeInOut,
+                        );
+                      } else {
+                        // 다음 문제로 넘어가는 로직
+                        setState(() {
+                          _answerState = [false, false, false, false]; // 선택 초기화
+                          _pageController.nextPage(
+                            duration: Duration(milliseconds: 300),
+                            curve: Curves.easeInOut,
+                          );
+                        });
+                      }
+                    },
             ),
           )
         ],
