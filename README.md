@@ -1,16 +1,8 @@
 # ecobinproj
 
-A new Flutter project.
+사용자가 찍은 사진이 일반쓰레기인지 재활용 쓰레기인지 분류하여 사용자한테 가까운 쓰레기통 위치를 알려주는 flutter App.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+실행하기 위해서는 ecobinproj 디렉토리 내에 있는 실행파일을 실행하세요.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
