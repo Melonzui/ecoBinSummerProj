@@ -1,6 +1,6 @@
-# ecobinproj
+# ecoBinSummerproj
 
-사용자가 찍은 사진이 일반쓰레기인지 재활용 쓰레기인지 분류하여 사용자한테 가까운 쓰레기통 위치를 알려주는 flutter App.
+사용자가 찍은 사진이 일반쓰레기인지 재활용 쓰레기인지 분류하여 사용자한테 가까운 쓰레기통 위치를 알려주는 Flutter App.
 
 ## Getting Started
 
